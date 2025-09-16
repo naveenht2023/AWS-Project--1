@@ -1,5 +1,26 @@
 Project: Secure VPC Setup with EC2 Instances
 
+Objective -
+- VPC with public & Private Subnet in Production.
+- To Create a VPC that can be use for Servers in a Production Environment.
+
+1. To Improve resiliency, deploy server in Two Availablity zones.
+2. By using Auto scaling group and Application Load Balancer.
+3. For addition security, Deploy the servers in private subnets.
+4. This Server will recive he request through the Load balancer.
+5. Server can connect to internet by using NAT gateway.
+6. And to improve the resiliency, deploy the NAT gateway in both the availability zones.
+
+Key Points to remember before start -
+1. Auto Scaling Group - Instead of creating EC2 in 2 AZ, create only 1 Ec2 and based on the traffic to scale the server across AZ's.
+2. Load Balancer -Distubte the load across the Severs and used for routing.
+3. Target Group -
+4. Bastion host /Jump Host - we can create bastion host in public sunet from her use to access the server which is there in private subnet ( For Server hosted in private Subnet , ther willbe no Public IP to access )
+5. Copy Pem file from Local to Bastion host /Jump Host EC2 to enable traffic to access from public to private subnet.
+
+
+Architecture Diagram :  Attached in Separte file.( Ref- AWS - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-example-private-subnets-nat.html)
+
 Summary : 
 This example demonstrates how to create a VPC that you can use for servers in a production environment. 
 To improve resiliency, you deploy the servers in two Availability Zones, by using an Auto Scaling group and an Application Load Balancer. 
@@ -39,7 +60,9 @@ Steps:
      Test network connectivity between instances in different subnets. 
      Validate security group rules and network ACL settings.
 
-Architecture Daigram :  Attached in Separte file.( Ref- AWS - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-example-private-subnets-nat.html)
+
+
+
 
 
 
